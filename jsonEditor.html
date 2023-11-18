@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON File Editor</title>
+</head>
+<body>
+    <h1>JSON File Editor</h1>
+    <textarea id="jsonEditor" rows="50" cols="50"></textarea>
+    <button onclick="saveChanges()">Save Changes</button>
+
+    <script>
+         // Läs in JSON-filen och visa den i textarean när sidan laddas
+         window.onload = function() {
+            fetch('json_files/listPlayers.json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('jsonEditor').value = JSON.stringify(data, null, 2);
+                });
+        };
+
+        // Spara ändringar tillbaka till localStorage
+        function saveChanges() {
+            var editedJson = document.getElementById('jsonEditor').value;
+
+            try {
+                var parsedJson = JSON.parse(editedJson);
+
+                // Spara parsedJson i localStorage under ett specifikt nyckelnamn
+                localStorage.setItem('editedJsonData', JSON.stringify(parsedJson));
+
+                // Uppdatera sidan för att visa ändringarna
+                window.location.href = 'index.html';
+            } catch (error) {
+                alert('Invalid JSON: ' + error.message);
+            }
+            const instanceOfscript = new script();
+                instanceOfscript.loadPlayersFromJson();
+        }
+    </script>
+</body>
+</html> 
+<!-- EJ KLAR -->

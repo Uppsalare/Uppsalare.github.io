@@ -1,0 +1,93 @@
+[
+  {
+    "Namn": "Victor Jannerlid Söderberg",
+    "pdgaRating": 921,
+    "antalPdga": 5,
+    "sm2022": 3,
+    "sm2023": 1
+  },
+  {
+    "Namn": "Lukas Jurka",
+    "pdgaRating": 859,
+    "antalPdga": 21,
+    "sm2022": "DNF",
+    "sm2023": 2
+  },
+  {
+    "Namn": "Viggo Hellöre",
+    "pdgaRating": 916,
+    "antalPdga": 1,
+    "sm2022": 6,
+    "sm2023": 7
+  },
+  {
+    "Namn": "David Johnsson",
+    "pdgaRating": 912,
+    "antalPdga": 7,
+    "sm2022": 1,
+    "sm2023": 4
+  },
+  {
+    "Namn": "Martin Johansson",
+    "pdgaRating": 886,
+    "antalPdga": 8,
+    "sm2022": "DNF",
+    "sm2023": 3
+  },
+  {
+    "Namn": "Tommie Svensson",
+    "pdgaRating": 871,
+    "antalPdga": 9,
+    "sm2022": 5,
+    "sm2023": 7
+  },
+  {
+    "Namn": "Glenn Ågren Almquist",
+    "pdgaRating": 859,
+    "antalPdga": 7,
+    "sm2022": 10,
+    "sm2023": 4
+  },
+  {
+    "Namn": "Daniel Wiken",
+    "pdgaRating": 843,
+    "antalPdga": 10,
+    "sm2022": 7,
+    "sm2023": 12
+  },
+  {
+    "Namn": "Kristian Karlsson",
+    "pdgaRating": 768,
+    "antalPdga": 19,
+    "sm2022": 12,
+    "sm2023": 17
+  },
+  {
+    "Namn": "Mikael Svensson",
+    "pdgaRating": 905,
+    "antalPdga": 11,
+    "sm2022": 2,
+    "sm2023": 4
+  },
+  {
+    "Namn": "Jabbar Faraj",
+    "pdgaRating": "0",
+    "antalPdga": 0,
+    "sm2022": 4,
+    "sm2023": 7
+  },
+  {
+    "Namn": "Marc Hemgren",
+    "pdgaRating": "",
+    "antalPdga": 0,
+    "sm2022": 8,
+    "sm2023": 13
+  },
+  {
+    "Namn": "Bahadir Eroglu",
+    "pdgaRating": "0",
+    "antalPdga": 0,
+    "sm2022": 8,
+    "sm2023": 14
+  }
+]
