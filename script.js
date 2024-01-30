@@ -64,19 +64,17 @@ async function loadPlayersFromJson() {
     const storedList = localStorage.getItem('editedJsonData');
     const parsedList = JSON.parse(storedList);
 
-    if (parsedList) {
-      // Gör något med listan, t.ex. logga den
-      console.log(parsedList);
+    if (Array.isArray(parsedList) && parsedList.length > 0) {
+      // Log the parsed list if it's an array with items
+      console.log("Parsed List from localStorage:", parsedList);
     } else {
       console.log('Listan är tom eller finns inte i localStorage.');
     }
 
-    // Hämta JSON-filen med fetch
     const response = await fetch("json_files/listPlayers.json");
 
-    // Kontrollera att förfrågan lyckades (status 200)
     if (!response.ok) {
-      console.log("Filen kunde inte hämtas.")
+      console.log("Filen kunde inte hämtas.", response.status)
       throw new Error("Filen kunde inte hämtas.");
     }
 
@@ -223,14 +221,11 @@ playerList.sort(function (a, b) {
 // Hämta referensen till tabellen med id "mytable"
 const table = document.getElementById("myTable");
 
-// Loopa genom varje spelare och skapa en rad för varje spelare i tabellen
 for (let i = 0; i < playerList.length; i++) {
     const player = playerList[i];
 
-    // Skapa en ny rad (tr)
     const row = table.insertRow();
 
-    // Skapa celler och lägg till data för varje attribut i varje cell
     const cell1 = row.insertCell(0);
     cell1.textContent = player.getName();
 
