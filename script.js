@@ -80,6 +80,7 @@ async function loadPlayersFromJson() {
 
     // Konvertera JSON till objekt
     const data = await response.json();
+    
 
     // Loopa igenom varje objekt i JSON-data och skapa spelare
     data.forEach((playerData) => {

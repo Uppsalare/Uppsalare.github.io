@@ -9,3 +9,5 @@ This project was created for fun, using the Finnish outlet system and featuring 
 Important Note: Only the top 6 players have the opportunity to participate, and the final decision rests with the trainers.
 
 Please be aware: The table provided is purely informative and serves as a helpful reference.
+
+Updated 2024-01-30
