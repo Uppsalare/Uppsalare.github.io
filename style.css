@@ -14,17 +14,6 @@ th, td {
     text-align: left;
 }
 
-/* Standard bakgrundsfärg för celler */
-.mytable td {
-    transition: background-color 0.7s ease; /* Smidig övergångseffekt */
-}
-
-/* Ändra bakgrundsfärgen när du hover över en cell */
-.mytable td:hover {
-    background-color: #8decd9; /* Byt ut mot den önskade bakgrundsfärgen */
-}
-
-
 #scoreSystem {
     margin: 5px;
     width: 20%;
@@ -56,29 +45,20 @@ th, td {
     padding: 12px 15px;
 }
 
-.mytable tbody tr {
-    border-bottom: 1px solid #dddddd;
+/* funkar ej */ 
+.mytable tr:nth-child(n) {
+    background-color: rgb(231, 252, 231); 
 }
 
-.mytable tbody tr:nth-of-type(even) {
-    background-color: #deffde;
-}
-.mytable tbody tr:nth-of-type(odd) {
-    background-color: #b9f1b9;
+.mytable tr:nth-child(n):hover {
+    background-color: rgb(136, 230, 136); 
 }
 
-.mytable tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+.mytable tr:nth-child(n+8) {
+    background-color: rgb(241, 200, 200); 
 }
 
-.mytable tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
+.mytable tr:nth-child(n+8):hover {
+    background-color: rgb(241, 147, 147); 
 }
 
-.mytable tbody tr:nth-child(n+7) {
-    background-color: rgb(238, 201, 201); 
-}
-.mytable tbody tr:nth-child(n+7):nth-child(odd) {
-    background-color: rgb(241, 180, 180); 
-}
