@@ -93,6 +93,7 @@ async function loadPlayersFromJson() {
 
       // Lägg till spelaren i listan
       playerList.push(player);
+      console.log(player)
     });
   } catch (error) {
     console.error("Ett fel inträffade:", error.message);
