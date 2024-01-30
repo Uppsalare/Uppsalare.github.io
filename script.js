@@ -76,6 +76,7 @@ async function loadPlayersFromJson() {
 
     // Kontrollera att förfrågan lyckades (status 200)
     if (!response.ok) {
+      console.log("Filen kunde inte hämtas.")
       throw new Error("Filen kunde inte hämtas.");
     }
 

@@ -47,7 +47,7 @@ th, td {
 
 /* funkar ej */ 
 .mytable tr:nth-child(n) {
-    background-color: rgb(231, 252, 231); 
+    background-color: rgb(241, 253, 241); 
 }
 
 .mytable tr:nth-child(n):hover {
@@ -55,7 +55,7 @@ th, td {
 }
 
 .mytable tr:nth-child(n+8) {
-    background-color: rgb(241, 200, 200); 
+    background-color: rgb(252, 240, 240); 
 }
 
 .mytable tr:nth-child(n+8):hover {
