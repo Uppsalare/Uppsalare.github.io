@@ -232,7 +232,7 @@ for (let i = 0; i < playerList.length; i++) {
     cell1.textContent = player.getName();
 
     const cell2 = row.insertCell(1);
-    cell2.textContent = player.getPdgaRating() + " (" + (player.getPdgaRating() - 750) + ")";
+    cell2.textContent = player.getPdgaRating() + " (" + (player.getPdgaRating() - 750 ) + ")";
 
     const cell4 = row.insertCell(2);
     cell4.textContent =  player.getnumberOfPDGAComp()+" " + " (" + player.getnumberOfPDGAComp()* 5 + ")";
