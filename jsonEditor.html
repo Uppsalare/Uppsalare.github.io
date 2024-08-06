@@ -3,22 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON File Editor</title>
 </head>
 <body>
-    <h1>JSON File Editor</h1>
+    <h1>JSON Data Redigering</h1>
     <textarea id="jsonEditor" rows="50" cols="50"></textarea>
-    <button onclick="saveChanges()">Save Changes</button>
+    <button onclick="saveChanges()">Spara ändring</button>
+    <button onclick="reset()">Återställ</button>
 
     <script>
-         // Läs in JSON-filen och visa den i textarean när sidan laddas
-         window.onload = function() {
-            fetch('json_files/listPlayers.json')
+        window.onload = function() {
+        // Hämta JSON-data från localStorage
+        let editedJsonData = localStorage.getItem('editedJsonData');
+
+        if (editedJsonData) {
+            // Om det finns data, konvertera det till ett JSON-objekt
+            let data = JSON.parse(editedJsonData);
+
+            // Sätt datan som en sträng med indentering i textareafältet
+            document.getElementById('jsonEditor').value = JSON.stringify(data, null, 2);
+        } else {
+            console.error('Ingen JSON-data hittades i localStorage');
+            document.getElementById('jsonEditor').value = 'Ingen data tillgänglig';
+        }   
+    };
+
+        function reset() {
+            fetch('json_files/DefaultListPlayers.json')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('jsonEditor').value = JSON.stringify(data, null, 2);
                 });
-        };
+        }
 
         // Spara ändringar tillbaka till localStorage
         function saveChanges() {

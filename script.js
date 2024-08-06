@@ -53,20 +53,21 @@ function openJsonEditor() {
   // Skicka JSON-data till den andra sidan via URL-parametrar
   window.location.href = 'jsonEditor.html';
 }
-
+  
 // Skapa en tom lista för spelare
 const playerList = [];
 
 // Funktion för att läsa in och behandla JSON-data
 async function loadPlayersFromJson() {
-  try {
+let parsedList = [] ;
 
+  try {
     const storedList = localStorage.getItem('editedJsonData');
-    const parsedList = JSON.parse(storedList);
+    parsedList = JSON.parse(storedList);
 
     if (Array.isArray(parsedList) && parsedList.length > 0) {
       // Log the parsed list if it's an array with items
-      console.log("Parsed List from localStorage:", parsedList);
+      //console.log("Parsed List from localStorage:", parsedList);
     } else {
       console.log('Listan är tom eller finns inte i localStorage.');
     }
@@ -81,7 +82,6 @@ async function loadPlayersFromJson() {
     // Konvertera JSON till objekt
     const data = await response.json();
     
-
     // Loopa igenom varje objekt i JSON-data och skapa spelare
     data.forEach((playerData) => {
       const player = new Player(
@@ -94,11 +94,28 @@ async function loadPlayersFromJson() {
 
       // Lägg till spelaren i listan
       playerList.push(player);
-      console.log(player)
     });
   } catch (error) {
     console.error("Ett fel inträffade:", error.message);
   }
+
+  if (parsedList.length > 0)
+  {
+    parsedList.forEach(function(item,index)
+    {
+      playerList.forEach(function(player,value)
+      {
+        if(item.Namn === player.getName())
+        {
+          player.pdgaRating = item.pdgaRating;
+          player.setnumberOfPDGAComp(item.antalPdga);
+          player.setplacementSM2022(item.sm2022);
+          player.setplacementSM2023(item.sm2023);
+        }
+      });
+    });
+  }
+  //console.log(playerList);
 
   // Ful läsning att lägga in poängsystem
   playerList.sort(function (a, b) {
@@ -228,28 +245,31 @@ for (let i = 0; i < playerList.length; i++) {
 
     const row = table.insertRow();
 
-    const cell1 = row.insertCell(0);
+    const cell0 = row.insertCell(0);
+    cell0.textContent = i+1;
+
+    const cell1 = row.insertCell(1);
     cell1.textContent = player.getName();
 
-    const cell2 = row.insertCell(1);
-    cell2.textContent = player.getPdgaRating() + " (" + (player.getPdgaRating() - 750 ) + ")";
+    const cell2 = row.insertCell(2);
+    cell2.textContent = player.getPdgaRating() + " (" + (Math.max(player.getPdgaRating() - 750,0)) + ")";
 
-    const cell4 = row.insertCell(2);
+    const cell4 = row.insertCell(3);
     cell4.textContent =  player.getnumberOfPDGAComp()+" " + " (" + player.getnumberOfPDGAComp()* 5 + ")";
 
-    const cell5 = row.insertCell(3);
+    const cell5 = row.insertCell(4);
     cell5.textContent = player.getplacementSM2022();
 
-    const cell6 = row.insertCell(4);
+    const cell6 = row.insertCell(5);
     cell6.textContent = player.getScoreSM2022();
 
-    const cell7 = row.insertCell(5);
+    const cell7 = row.insertCell(6);
     cell7.textContent = player.getplacementSM2023();
 
-    const cell8 = row.insertCell(6);
+    const cell8 = row.insertCell(7);
     cell8.textContent = player.getScoreSM2023();
 
-    const cell9 = row.insertCell(7);
+    const cell9 = row.insertCell(8);
     cell9.textContent = player.getTotalScore();
 }
 }
@@ -258,6 +278,7 @@ function filterPlayersByPlacement(players, placement) {
   return players.filter((player) => player.placement === placement);
 }
 
+// Hjälpmedel, Skriv ut alla spelare
 function printoutAllPlayers(playerList) {
   playerList.forEach((player) => {
     console.log(player.getInfoAboutPlayer());
