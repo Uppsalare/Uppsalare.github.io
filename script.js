@@ -67,7 +67,7 @@ let parsedList = [] ;
 
     if (Array.isArray(parsedList) && parsedList.length > 0) {
       // Log the parsed list if it's an array with items
-      //console.log("Parsed List from localStorage:", parsedList);
+      console.log("List from localStorage:", parsedList);
     } else {
       console.log('Listan är tom eller finns inte i localStorage.');
     }
@@ -103,21 +103,29 @@ let parsedList = [] ;
   {
     parsedList.forEach(function(item,index)
     {
+      let match = false;
       playerList.forEach(function(player,value)
       {
         if(item.Namn === player.getName())
         {
+          match = true;
           player.pdgaRating = item.pdgaRating;
           player.setnumberOfPDGAComp(item.antalPdga);
           player.setplacementSM2022(item.sm2022);
           player.setplacementSM2023(item.sm2023);
         }
       });
+
+      if(!match)
+      {
+        const newPlayer = new Player(item.Namn, item.pdgaRating, item.antalPdga, item.sm2022, item.sm2023)
+        playerList.push(newPlayer); 
+      }
     });
   }
   //console.log(playerList);
 
-  // Ful läsning att lägga in poängsystem
+  // Ful lösning att lägga in poängsystem
   playerList.sort(function (a, b) {
     var numberA =
       typeof a.getplacementSM2022() === "number"

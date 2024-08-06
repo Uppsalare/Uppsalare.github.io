@@ -7,8 +7,10 @@
 <body>
     <h1>JSON Data Redigering</h1>
     <textarea id="jsonEditor" rows="50" cols="50"></textarea>
+    <br>
     <button onclick="saveChanges()">Spara ändring</button>
     <button onclick="reset()">Återställ</button>
+    <button onclick="addNewPlayer()">Lägga till ny spelare</button>
 
     <script>
         window.onload = function() {
@@ -26,6 +28,29 @@
             document.getElementById('jsonEditor').value = 'Ingen data tillgänglig';
         }   
     };
+
+    function addNewPlayer() {
+            fetch('json_files/addNewPlayer.json')
+                .then(response => response.json())
+                .then(newData => {
+                    // Hämta den befintliga JSON-datan från textarean
+                    let currentData = JSON.parse(document.getElementById('jsonEditor').value);
+
+                    // Lägg till den nya datan till slutet av den befintliga datan
+                    if (Array.isArray(currentData)) {
+                        currentData.push(newData);
+                    } else if (typeof currentData === 'object') {
+                        currentData = { ...currentData, ...newData };
+                    } else {
+                        console.error('Unsupported JSON structure.');
+                        return;
+                    }
+
+                    // Uppdatera textarean med den nya datan
+                    document.getElementById('jsonEditor').value = JSON.stringify(currentData, null, 2);
+                })
+                .catch(error => console.error('Error:', error));
+        }
 
         function reset() {
             fetch('json_files/DefaultListPlayers.json')

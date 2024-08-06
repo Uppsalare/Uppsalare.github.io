@@ -60,7 +60,7 @@ class Player {
       }
   
     getplacementSM2022() {
-      return this.placementSM2022 || Number.MAX_VALUE;
+      return this.placementSM2022 || 0;
     }
   
     setplacementSM2022(placementSM2022) {
@@ -68,7 +68,7 @@ class Player {
     }
     
     getplacementSM2023() {
-        return this.placementSM2023 || Number.MAX_VALUE;
+        return this.placementSM2023 || 0;
       }
     
     setplacementSM2023(placementSM2023) {
