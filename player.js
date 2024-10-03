@@ -1,12 +1,12 @@
 class Player {
-    constructor(name, pdgaRating, numberOfPDGAComp,placementSM2022,placementSM2023) {
+    constructor(name, pdgaRating, numberOfPDGAComp,placementSM2024,placementSM2025) {
       this.name = name;
       this.pdgaRating = pdgaRating;
       this.numberOfPDGAComp = numberOfPDGAComp;
-      this.placementSM2022 = placementSM2022;
-      this.scoreSM2022 = 0;
-      this.placementSM2023 = placementSM2023;
-      this.scoreSM2023 = 0;
+      this.placementSM2024 = placementSM2024;
+      this.scoreSM2024 = 0;
+      this.placementSM2025 = placementSM2025;
+      this.scoreSM2025 = 0;
       this.totalScore=0;
     }
 
@@ -19,20 +19,20 @@ class Player {
         this.totalScore=totalScore;
     }
 
-    getScoreSM2022() {
-      return this.scoreSM2022 || 0;
+    getScoreSM2024() {
+      return this.scoreSM2024 || 0;
     }
   
-    setScoreSM2022(scoreSM2022) {
-      this.scoreSM2022 = scoreSM2022;
+    setScoreSM2024(scoreSM2024) {
+      this.scoreSM2024 = scoreSM2024;
     }
 
-    getScoreSM2023() {
-        return this.scoreSM2023 || 0;
+    getScoreSM2025() {
+        return this.scoreSM2025 || 0;
       }
     
-    setScoreSM2023(scoreSM2023) {
-        this.scoreSM2023 = scoreSM2023;
+    setScoreSM2025(scoreSM2025) {
+        this.scoreSM2025 = scoreSM2025;
       }
   
     getName() {
@@ -59,22 +59,22 @@ class Player {
         this.numberOfPDGAComp = numberOfPDGAComp;
       }
   
-    getplacementSM2022() {
-      return this.placementSM2022 || 0;
+    getplacementSM2024() {
+      return this.placementSM2024 || 0;
     }
   
-    setplacementSM2022(placementSM2022) {
-      this.placementSM2022 = placementSM2022;
+    setplacementSM2024(placementSM2024) {
+      this.placementSM2024 = placementSM2024;
     }
     
-    getplacementSM2023() {
-        return this.placementSM2023 || 0;
+    getplacementSM2025() {
+        return this.placementSM2025 || 0;
       }
     
-    setplacementSM2023(placementSM2023) {
-        this.placementSM2023 = placementSM2023;
+    setplacementSM2025(placementSM2025) {
+        this.placementSM2025 = placementSM2025;
       }
     getInfoAboutPlayer() {
-      return `Namn: ${this.getName()}, PDGA Rating: ${this.getPdgaRating()}, Antal Pdga tävlingar:${this.getnumberOfPDGAComp()}, placering SM 2022: ${this.getplacementSM2022()}, Poäng SM 2022: ${this.getScoreSM2022()}, placering SM 2023: ${this.getplacementSM2023()}, Poäng SM 2023: ${this.getScoreSM2023()}, Total poäng: ${this.getTotalScore()}`;
+      return `Namn: ${this.getName()}, PDGA Rating: ${this.getPdgaRating()}, Antal Pdga tävlingar:${this.getnumberOfPDGAComp()}, placering SM 2024: ${this.getplacementSM2024()}, Poäng SM 2024: ${this.getScoreSM2024()}, placering SM 2025: ${this.getplacementSM2025()}, Poäng SM 2025: ${this.getScoreSM2025()}, Total poäng: ${this.getTotalScore()}`;
     }
   }

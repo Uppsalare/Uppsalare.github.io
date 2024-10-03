@@ -88,8 +88,8 @@ let parsedList = [] ;
         playerData["Namn"],
         playerData["pdgaRating"],
         playerData["antalPdga"],
-        playerData["sm2022"],
-        playerData["sm2023"]
+        playerData["sm2024"],
+        playerData["sm2025"]
       );
 
       // Lägg till spelaren i listan
@@ -111,14 +111,14 @@ let parsedList = [] ;
           match = true;
           player.pdgaRating = item.pdgaRating;
           player.setnumberOfPDGAComp(item.antalPdga);
-          player.setplacementSM2022(item.sm2022);
-          player.setplacementSM2023(item.sm2023);
+          player.setplacementSM2024(item.sm2024);
+          player.setplacementSM2025(item.sm2025);
         }
       });
 
       if(!match)
       {
-        const newPlayer = new Player(item.Namn, item.pdgaRating, item.antalPdga, item.sm2022, item.sm2023)
+        const newPlayer = new Player(item.Namn, item.pdgaRating, item.antalPdga, item.sm2024, item.sm2025)
         playerList.push(newPlayer); 
       }
     });
@@ -128,12 +128,12 @@ let parsedList = [] ;
   // Ful lösning att lägga in poängsystem
   playerList.sort(function (a, b) {
     var numberA =
-      typeof a.getplacementSM2022() === "number"
-        ? a.getplacementSM2022()
+      typeof a.getplacementSM2024() === "number"
+        ? a.getplacementSM2024()
         : Number.MAX_VALUE;
     var numberB =
-      typeof b.getplacementSM2022() === "number"
-        ? b.getplacementSM2022()
+      typeof b.getplacementSM2024() === "number"
+        ? b.getplacementSM2024()
         : Number.MAX_VALUE;
 
     if (numberA < numberB) {
@@ -146,39 +146,39 @@ let parsedList = [] ;
   });
 
   for (let i = 0; i < playerList.length; i++) {
-    if (typeof playerList[i].getplacementSM2022() === "string") {
-      playerList[i].setScoreSM2022(0);
+    if (typeof playerList[i].getplacementSM2024() === "string") {
+      playerList[i].setScoreSM2024(0);
     } else {
-      playerList[i].setScoreSM2022(listScore[i]);
+      playerList[i].setScoreSM2024(listScore[i]);
     }
   }
 
   for (let i = 0; i < playerList.length; i++) {
     const newList = playerList.filter(
-      (player) => player.getplacementSM2022() === i
+      (player) => player.getplacementSM2024() === i
     );
 
     if (newList.length > 1) {
       const total = newList.reduce(
-        (sum, player) => sum + player.getScoreSM2022(),
+        (sum, player) => sum + player.getScoreSM2024(),
         0
       );
       const newScore = total / newList.length;
 
       newList.forEach((player) => {
-        player.setScoreSM2022(parseFloat(newScore.toFixed(1)));
+        player.setScoreSM2024(parseFloat(newScore.toFixed(1)));
       });
     }
   }
 
   playerList.sort(function (a, b) {
     var numberA =
-      typeof a.getplacementSM2023() === "number"
-        ? a.getplacementSM2023()
+      typeof a.getplacementSM2025() === "number"
+        ? a.getplacementSM2025()
         : Number.MAX_VALUE;
     var numberB =
-      typeof b.getplacementSM2023() === "number"
-        ? b.getplacementSM2023()
+      typeof b.getplacementSM2025() === "number"
+        ? b.getplacementSM2025()
         : Number.MAX_VALUE;
 
     if (numberA < numberB) {
@@ -191,27 +191,27 @@ let parsedList = [] ;
   });
 
   for (let i = 0; i < playerList.length; i++) {
-    if (typeof playerList[i].getplacementSM2023() === "string") {
-      playerList[i].setScoreSM2023(0);
+    if (typeof playerList[i].getplacementSM2025() === "string") {
+      playerList[i].setScoreSM2025(0);
     } else {
-      playerList[i].setScoreSM2023(listScore[i]);
+      playerList[i].setScoreSM2025(listScore[i]);
     }
   }
 
   for (let i = 0; i < playerList.length; i++) {
     const newList = playerList.filter(
-      (player) => player.getplacementSM2023() === i
+      (player) => player.getplacementSM2025() === i
     );
 
     if (newList.length > 1) {
       const total = newList.reduce(
-        (sum, player) => sum + player.getScoreSM2023(),
+        (sum, player) => sum + player.getScoreSM2025(),
         0
       );
       const newScore = total / newList.length;
 
       newList.forEach((player) => {
-        player.setScoreSM2023(parseFloat(newScore.toFixed(1)));
+        player.setScoreSM2025(parseFloat(newScore.toFixed(1)));
       });
     }
   }
@@ -220,8 +220,8 @@ let parsedList = [] ;
     const totalScore =
       Math.max(player.getPdgaRating() - 750,0) +
       player.getnumberOfPDGAComp() * 5 +
-      player.getScoreSM2022() +
-      player.getScoreSM2023();
+      player.getScoreSM2024() +
+      player.getScoreSM2025();
     player.setTotalScore(totalScore);
     });
 
@@ -266,16 +266,16 @@ for (let i = 0; i < playerList.length; i++) {
     cell4.textContent =  player.getnumberOfPDGAComp()+" " + " (" + player.getnumberOfPDGAComp()* 5 + ")";
 
     const cell5 = row.insertCell(4);
-    cell5.textContent = player.getplacementSM2022();
+    cell5.textContent = player.getplacementSM2024();
 
     const cell6 = row.insertCell(5);
-    cell6.textContent = player.getScoreSM2022();
+    cell6.textContent = player.getScoreSM2024();
 
     const cell7 = row.insertCell(6);
-    cell7.textContent = player.getplacementSM2023();
+    cell7.textContent = player.getplacementSM2025();
 
     const cell8 = row.insertCell(7);
-    cell8.textContent = player.getScoreSM2023();
+    cell8.textContent = player.getScoreSM2025();
 
     const cell9 = row.insertCell(8);
     cell9.textContent = player.getTotalScore();

@@ -10,4 +10,4 @@ Important Note: Only the top 6 players have the opportunity to participate, and 
 
 Please be aware: The table provided is purely informative and serves as a helpful reference.
 
-Updated 2024-01-30
+Updated 2024-10-03
