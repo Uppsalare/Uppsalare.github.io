@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDGA Rating Checker</title>
+  <link rel="stylesheet" type="text/css" href="custom-list-style.css">
+  <script src="custom-list.js" defer></script>
+
+</head>
+<body>
+  <div class="card">
+    <h1>PDGA Rating Checker</h1>
+    <input type="text" id="playerId" placeholder="Ange PDGA-ID (t.ex. 75412)" />
+    <button onclick="getPlayerData()">Hämta Spelarinformation</button>
+    <div class="result" id="result"> </div>
+    <div class="footer">Inofficiell data från pdga.com</div>
+  </div>
+
+  <br>
+  <div class="player-list" id="playerList"></div>
+  <br>
+</body>
+
+
+</html>

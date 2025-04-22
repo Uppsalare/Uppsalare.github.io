@@ -53,7 +53,6 @@ function openJsonEditor() {
   // Skicka JSON-data till den andra sidan via URL-parametrar
   window.location.href = 'jsonEditor.html';
 }
-  
 // Skapa en tom lista för spelare
 const playerList = [];
 
@@ -101,10 +100,10 @@ let parsedList = [] ;
 
   if (parsedList.length > 0)
   {
-    parsedList.forEach(function(item,index)
+    parsedList.forEach(function(item)
     {
       let match = false;
-      playerList.forEach(function(player,value)
+      playerList.forEach(function(player)
       {
         if(item.Namn === player.getName())
         {
